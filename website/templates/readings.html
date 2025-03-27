@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Reading Page{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2 class="text-center mb-4">Reading Page</h2>
+        <form method="POST" action="{{ url_for('views.calculate') }}">
+            <!-- Hidden Fields: carry data to calculation -->
+            <input type="hidden" name="initial_weight" value="{{ initial_weight }}">
+            <input type="hidden" name="final_moisture" value="{{ final_moisture }}">
+            <input type="hidden" name="sensor_value" value="{{ sensor_value }}">
+            <input type="hidden" name="temperature" value="{{ temperature }}">
+            <input type="hidden" name="humidity" value="{{ humidity }}">
+            <input type="hidden" name="moisture_content" value="{{ moisture_content }}">
+            <input type="hidden" name="date_planted" value="{{ date_planted }}">
+            <input type="hidden" name="date_harvested" value="{{ date_harvested }}">
+            <input type="hidden" name="date_dried" value="{{ date_dried }}">
+
+            <!-- Sensor Display -->
+            <div class="mb-3">
+                <label class="form-label">Moisture Content (%)</label>
+                <p class="form-control text-center fw-bold">{{ moisture_content or '--' }}</p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Temperature (°C)</label>
+                <p class="form-control text-center fw-bold">{{ temperature or '--' }}</p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Humidity (%)</label>
+                <p class="form-control text-center fw-bold">{{ humidity or '--' }}</p>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100 mt-3">Predict</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

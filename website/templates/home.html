@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2 class="text-center mb-4">Home Page</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="initialWeight" class="form-label">Initial Weight (kg)</label>
+                <input type="number" step="any" class="form-control" id="initialWeight" name="initial_weight" placeholder="Enter initial weight" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Desired Final Moisture Content (%)</label>
+                <div class="d-flex justify-content-center gap-3">
+                    <input type="radio" class="btn-check" name="final_moisture" id="moisture14" value="14" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="moisture14">14%</label>
+
+                    <input type="radio" class="btn-check" name="final_moisture" id="moisture12" value="12" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="moisture12">12%</label>
+
+                    <input type="radio" class="btn-check" name="final_moisture" id="moisture9" value="9" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="moisture9">9%</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="datePlanted" class="form-label">Date Planted</label>
+                <input type="date" class="form-control" id="datePlanted" name="date_planted" required>
+            </div>
+            <div class="mb-3">
+                <label for="dateHarvested" class="form-label">Date Harvested</label>
+                <input type="date" class="form-control" id="dateHarvested" name="date_harvested" required>
+            </div>
+            <div class="mb-3">
+                <label for="dateDried" class="form-label">Date Dried</label>
+                <input type="date" class="form-control" id="dateDried" name="date_dried" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Read from Sensors</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
