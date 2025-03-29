@@ -3,10 +3,10 @@ Paddy rice drying is a critical post-harvest process that directly affects grain
 
 This application is designed to support that need by allowing users to input key environmental and crop-specific parameters, including:
 
--Initial moisture content of the rice
--Target final moisture content
+- Initial moisture content of the rice
+- Target final moisture content
 - Ambient temperature
--Relative humidity
+- Relative humidity
 
 Using trained machine learning models, the system provides real-time predictions for:
 1. Estimated drying time required to achieve the target moisture level
