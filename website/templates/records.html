@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Drying Records{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2 class="text-center mb-4">Drying History</h2>
+        {% if records %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Initial Weight (kg)</th>
+                        <th>Temperature (°C)</th>
+                        <th>Humidity (%)</th>
+                        <th>Initial Moisture (%)</th>
+                        <th>Final Moisture (%)</th>
+                        <th>Drying Time</th>
+                        <th>Final Weight (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in records %}
+                    <tr>
+                        <td>{{ r.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td>{{ r.initial_weight }}</td>
+                        <td>{{ r.temperature }}</td>
+                        <td>{{ r.humidity }}</td>
+                        <td>{{ r.initial_moisture }}</td>
+                        <td>{{ r.final_moisture }}</td>
+                        <td>{{ r.drying_time }}</td>
+                        <td>{{ r.final_weight }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p class="text-center">No records yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

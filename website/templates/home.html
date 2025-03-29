@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Sensor Data Input{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2 class="text-center mb-4">Sensor Data Input</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="initialWeight" class="form-label">Initial Weight (kg)</label>
+                <input type="number" step="any" class="form-control" id="initialWeight" name="initial_weight" placeholder="Enter initial weight" required>
+            </div>
+            <div class="mb-3">
+                <label for="humidity" class="form-label">Humidity (%)</label>
+                <input type="number" step="any" class="form-control" id="humidity" name="humidity" placeholder="Enter humidity" required>
+            </div>
+            <div class="mb-3">
+                <label for="temperature" class="form-label">Temperature (°C)</label>
+                <input type="number" step="any" class="form-control" id="temperature" name="temperature" placeholder="Enter temperature" required>
+            </div>
+            <div class="mb-3">
+                <label for="sensorValue" class="form-label">Sensor Value</label>
+                <input type="number" step="any" class="form-control" id="sensorValue" name="sensor_value" placeholder="Enter sensor value" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Calculate</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

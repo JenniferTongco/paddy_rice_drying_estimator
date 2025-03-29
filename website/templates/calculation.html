@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Moisture Prediction{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card p-4 shadow">
+        <h2 class="text-center mb-4">Moisture Content</h2>
+        <form method="POST" action="/calculate">
+            <!-- Display predicted initial moisture content -->
+            <div class="mb-3">
+                <label class="form-label">Moisture Content (%)</label>
+                <input class="form-control" readonly value="{{ moisture_content }}">
+                
+                <!-- Hidden fields to pass data to /calculate -->
+                <input type="hidden" name="moisture_content" value="{{ moisture_content }}">
+                <input type="hidden" name="initial_weight" value="{{ initial_weight }}">
+                <input type="hidden" name="temperature" value="{{ temperature }}">
+                <input type="hidden" name="humidity" value="{{ humidity }}">
+                <input type="hidden" name="sensor_value" value="{{ sensor_value }}">
+            </div>
+
+            <!-- Radio buttons for final moisture selection -->
+            <div class="mb-3">
+                <label class="form-label">Desired Final Moisture Content (%)</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="final_moisture" value="14" id="moisture14" checked>
+                    <label class="form-check-label" for="moisture14">14%</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="final_moisture" value="12" id="moisture12">
+                    <label class="form-check-label" for="moisture12">12%</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="final_moisture" value="9" id="moisture9">
+                    <label class="form-check-label" for="moisture9">9%</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Predict</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
